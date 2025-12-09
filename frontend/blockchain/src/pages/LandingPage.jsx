@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
-import './LandingPage.css';
+import { useState } from 'react';
+import '../styles/LandingPage.css';
 
-
-export default function LandingPage() {
+export default function LandingPage({ navigate }) {
   const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate('concerts');
+    }
+  };
 
   return (
     <div className="landing-page">
-      {/* Navigation Bar */}
       <nav className="navbar">
         <div className="navbar-logo">
           <div className="logo-icon">
@@ -17,15 +22,15 @@ export default function LandingPage() {
         </div>
         
         <div className="navbar-links">
-          <a href="#" className="nav-link">How it works</a>
-          <a href="#" className="nav-link">How to sell</a>
-          <a href="#" className="nav-link">Become a partner</a>
-          <a href="#" className="nav-link">Log in</a>
-          <button className="btn-primary">Sell your tickets</button>
+          <a href="#" onClick={(e) => { e.preventDefault(); }}>How it works</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); navigate('concerts'); }}>Browse Events</a>
+          <a href="#" onClick={(e) => { e.preventDefault(); navigate('profile'); }}>Profile</a>
+          <button className="btn-primary" onClick={() => navigate('sell')}>
+            Sell your tickets
+          </button>
         </div>
       </nav>
 
-      {/* Hero Section */}
       <div className="hero-section">
         <div className="hero-background"></div>
         
@@ -34,12 +39,11 @@ export default function LandingPage() {
             The safest way to buy and sell tickets
           </h1>
 
-          {/* Search Bar */}
-          <div className="search-container">
+          <form onSubmit={handleSearch} className="search-container">
             <div className="search-wrapper">
               <input
                 type="text"
-                placeholder="Search for an event, artist, venue or city"
+                placeholder="Search for an event, artist, venue or city..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="search-input"
@@ -58,15 +62,31 @@ export default function LandingPage() {
                 />
               </svg>
             </div>
-          </div>
+          </form>
+
+          <button 
+            className="btn-browse"
+            onClick={() => navigate('concerts')}
+            style={{
+              marginTop: '2rem',
+              padding: '0.75rem 2rem',
+              fontSize: '1.1rem',
+              backgroundColor: '#22d3ee',
+              color: '#0f172a',
+              border: 'none',
+              borderRadius: '8px',
+              fontWeight: '600',
+              cursor: 'pointer'
+            }}
+          >
+            Browse All Events
+          </button>
         </div>
       </div>
 
-      {/* Features Section */}
       <div className="features-section">
         <div className="features-container">
           <div className="features-grid">
-            {/* Left Column - Features */}
             <div className="features-list">
               <div className="feature-item">
                 <svg className="feature-icon" fill="currentColor" viewBox="0 0 20 20">
@@ -90,7 +110,6 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Right Column - Trustpilot */}
             <div className="trustpilot-container">
               <div className="trustpilot-content">
                 <div className="trustpilot-header">
@@ -110,15 +129,6 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Tab Navigation */}
-      <div className="tabs-section">
-        <div className="tabs-container">
-          <button className="tab active">Discover</button>
-          <button className="tab">For you</button>
-          <button className="tab">Following</button>
         </div>
       </div>
     </div>
