@@ -39,7 +39,7 @@ export default function SellTicketPage({ navigate, sellTicket }) {
           <div className="logo-icon">
             <span>T</span>
           </div>
-          <span className="logo-text">ticketswap</span>
+          <span className="logo-text">ticketswell</span>
         </div>
         
         <div className="navbar-links">
@@ -66,7 +66,7 @@ export default function SellTicketPage({ navigate, sellTicket }) {
                 name="eventName"
                 value={formData.eventName}
                 onChange={handleChange}
-                placeholder="e.g., Taylor Swift - The Eras Tour"
+                placeholder="e.g., Free Finga | Žalgirio Arena"
                 required
               />
             </div>
@@ -90,7 +90,7 @@ export default function SellTicketPage({ navigate, sellTicket }) {
                   name="venue"
                   value={formData.venue}
                   onChange={handleChange}
-                  placeholder="e.g., Wembley Stadium"
+                  placeholder="e.g., Kalnų parkas"
                   required
                 />
               </div>
@@ -103,7 +103,7 @@ export default function SellTicketPage({ navigate, sellTicket }) {
                 name="city"
                 value={formData.city}
                 onChange={handleChange}
-                placeholder="e.g., London"
+                placeholder="e.g., Kaunas"
                 required
               />
             </div>
@@ -120,7 +120,7 @@ export default function SellTicketPage({ navigate, sellTicket }) {
                   name="section"
                   value={formData.section}
                   onChange={handleChange}
-                  placeholder="e.g., Lower Bowl"
+                  placeholder="e.g., VIP zona"
                   required
                 />
               </div>
@@ -152,7 +152,7 @@ export default function SellTicketPage({ navigate, sellTicket }) {
 
             <div className="form-row">
               <div className="form-group">
-                <label>Price (USD) *</label>
+                <label>Price (€) *</label>
                 <input
                   type="number"
                   name="price"

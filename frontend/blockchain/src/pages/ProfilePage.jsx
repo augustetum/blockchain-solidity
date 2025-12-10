@@ -8,7 +8,7 @@ export default function ProfilePage({ navigate, userTickets }) {
           <div className="logo-icon">
             <span>T</span>
           </div>
-          <span className="logo-text">ticketswap</span>
+          <span className="logo-text">ticketswell</span>
         </div>
         
         <div className="navbar-links">
