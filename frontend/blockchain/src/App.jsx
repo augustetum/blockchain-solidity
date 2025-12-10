@@ -23,7 +23,6 @@ function App() {
       ...prev,
       bought: [...prev.bought, { ...ticket, purchaseDate: new Date().toISOString() }]
     }));
-    alert('Ticket purchased successfully!');
   };
 
   const sellTicket = (ticket) => {
@@ -31,7 +30,6 @@ function App() {
       ...prev,
       sold: [...prev.sold, { ...ticket, listingDate: new Date().toISOString() }]
     }));
-    alert('Ticket listed for sale successfully!');
     navigate('profile');
   };
 
