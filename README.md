@@ -1,4 +1,4 @@
-# Bilietų pirkimo ir pardavimo platforma naudojant 
+# Bilietų pirkimo ir pardavimo platforma  
 Tai projektas įgyvendinantis decantralizuotą ir saugų bilietų pirkimą bei pardavimą Ethereum tinkle. Aplikacija (DApp) naudoja išmaniasias sutartis (angl. _smart contracts_ ) parašytas Solidity kalba renginių bilietų pirkimui ir pardavimui.
 
 # Poreikis
