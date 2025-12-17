@@ -1,5 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/ConcertsPage.css';
+import WalletConnect from '../components/WalletConnect';
+import { useWeb3 } from '../context/Web3Context';
+import { getEventListings } from '../utils/contractHelpers';
 
 const MOCK_CONCERTS = [
   {
@@ -77,12 +80,78 @@ const MOCK_CONCERTS = [
 ];
 
 export default function ConcertsPage({ navigate }) {
+  const { contracts } = useWeb3();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCity, setSelectedCity] = useState('all');
+  const [concertsData, setConcertsData] = useState(MOCK_CONCERTS);
+  const [loading, setLoading] = useState(false);
 
   const cities = ['all', ...new Set(MOCK_CONCERTS.map(c => c.city))];
 
-  const filteredConcerts = MOCK_CONCERTS.filter(concert => {
+  // Load real ticket data from blockchain
+  useEffect(() => {
+    if (contracts.marketplace && contracts.eventTickets && contracts.eventTickets.length > 0) {
+      loadConcertData();
+    }
+  }, [contracts]);
+
+  const loadConcertData = async () => {
+    setLoading(true);
+    try {
+      const updatedConcerts = await Promise.all(
+        MOCK_CONCERTS.map(async (concert) => {
+          // Find matching event ticket contract
+          const eventTicket = contracts.eventTickets.find(
+            et => et.name === concert.name
+          );
+
+          if (!eventTicket) {
+            return concert; // Return original if no contract found
+          }
+
+          try {
+            // Get marketplace listings for this event
+            const listings = await getEventListings(
+              contracts.marketplace,
+              eventTicket.contract,
+              eventTicket.address
+            );
+
+            // Calculate price range from listings
+            let priceRange = concert.priceRange;
+            if (listings.length > 0) {
+              const prices = listings.map(l => parseFloat(l.price));
+              const minPrice = Math.min(...prices);
+              const maxPrice = Math.max(...prices);
+
+              if (minPrice === maxPrice) {
+                priceRange = `${minPrice.toFixed(3)} ETH`;
+              } else {
+                priceRange = `${minPrice.toFixed(3)} - ${maxPrice.toFixed(3)} ETH`;
+              }
+            }
+
+            return {
+              ...concert,
+              availableTickets: listings.length,
+              priceRange: priceRange
+            };
+          } catch (err) {
+            console.error(`Error loading data for ${concert.name}:`, err);
+            return concert;
+          }
+        })
+      );
+
+      setConcertsData(updatedConcerts);
+    } catch (err) {
+      console.error('Error loading concert data:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const filteredConcerts = concertsData.filter(concert => {
     const matchesSearch = concert.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          concert.artist.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          concert.venue.toLowerCase().includes(searchTerm.toLowerCase());
@@ -103,6 +172,7 @@ export default function ConcertsPage({ navigate }) {
         <div className="navbar-links">
           <a href="#" onClick={(e) => { e.preventDefault(); navigate('home'); }}>Home</a>
           <a href="#" onClick={(e) => { e.preventDefault(); navigate('profile'); }}>Profile</a>
+          <WalletConnect />
           <button className="btn-primary" onClick={() => navigate('sell')}>
             Sell Tickets
           </button>

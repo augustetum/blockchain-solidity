@@ -68,3 +68,89 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Wallet Connect Styles */
+.wallet-connect {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.connect-button {
+  padding: 8px 16px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.connect-button:hover {
+  background: #45a049;
+}
+
+.connect-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.account-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.account-address {
+  font-family: monospace;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  font-size: 13px;
+  color: inherit;
+}
+
+.network-badge {
+  padding: 4px 8px;
+  background: #2196F3;
+  color: white;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.disconnect-button {
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.disconnect-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.error-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 16px;
+  background: #f44336;
+  color: white;
+  border-radius: 6px;
+  max-width: 300px;
+  font-size: 14px;
+  z-index: 1000;
+}

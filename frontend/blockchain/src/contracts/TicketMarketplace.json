@@ -67,8 +67,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -81,8 +80,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -121,8 +119,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [],
@@ -135,8 +132,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -185,8 +181,7 @@
       "name": "buyTicket",
       "outputs": [],
       "stateMutability": "payable",
-      "type": "function",
-      "payable": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -10207,29 +10202,10 @@
       "links": {},
       "address": "0x93B235c5A4B2d8AA19C2Ed59F96a114B832272E2",
       "transactionHash": "0x4aa881afccbfb24e3d73cf94de5228fd4e8d8262aa8d659982fbdf91f47db2c4"
-    },
-    "1765393414875": {
-      "events": {},
-      "links": {},
-      "address": "0x2d03c3A57B5faAdE88b7942796FD46aC6bF5e89D",
-      "transactionHash": "0x8dee24f38d596eff90cfa288997bd9619dd2d776cfb2f35c1a2c2a87857c97f4"
-    },
-    "1765970698216": {
-      "events": {},
-      "links": {},
-      "address": "0x33dA251fC9C425f43f2952dC9702A7956fDb3F1a",
-      "transactionHash": "0x046d875e0bf1c5c03e4369c6e768684a3a4e2d7fe16e49152f5de31f746f6e0d"
-    },
-    "1765971137499": {
-      "events": {},
-      "links": {},
-      "address": "0x0517a53bBCA7402ad8452cC801e30e93D430e223",
-      "transactionHash": "0x5515b902394f86677076715728ef908c8aba36574d873aa4261f8b61a74b0330"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-12-17T14:12:56.399Z",
-  "networkType": "ethereum",
+  "updatedAt": "2025-12-10T13:47:47.187Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

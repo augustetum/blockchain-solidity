@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/LandingPage.css';
+import WalletConnect from '../components/WalletConnect';
 
 export default function LandingPage({ navigate }) {
   const [searchQuery, setSearchQuery] = useState('');
@@ -20,11 +21,12 @@ export default function LandingPage({ navigate }) {
           </div>
           <span className="logo-text">ticketswell</span>
         </div>
-        
+
         <div className="navbar-links">
           <a href="#" onClick={(e) => { e.preventDefault(); }}>How it works</a>
           <a href="#" onClick={(e) => { e.preventDefault(); navigate('concerts'); }}>Browse Events</a>
           <a href="#" onClick={(e) => { e.preventDefault(); navigate('profile'); }}>Profile</a>
+          <WalletConnect />
           <button className="btn-primary" onClick={() => navigate('sell')}>
             Sell your tickets
           </button>

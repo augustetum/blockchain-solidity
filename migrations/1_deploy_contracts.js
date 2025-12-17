@@ -1,5 +1,6 @@
-const MyContract = artifacts.require("MyContract");
+const TicketMarketplace = artifacts.require("TicketMarketplace");
 
 module.exports = function (deployer) {
-  deployer.deploy(MyContract);
+  // Deploy TicketMarketplace
+  deployer.deploy(TicketMarketplace);
 };
