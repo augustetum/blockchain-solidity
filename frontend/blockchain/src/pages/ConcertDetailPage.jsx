@@ -144,9 +144,9 @@ export default function ConcertDetailPage({ concert, navigate, buyTicket }) {
             </div>
           ) : marketplaceListings.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '40px', background: '#f5f5f5', borderRadius: '8px' }}>
-              <h3>No Tickets Listed</h3>
-              <p>There are currently no tickets available for resale on the marketplace.</p>
-              <p>Check back later or list your own tickets!</p>
+              <h3 style={{ color: '#333' }}>No Tickets Listed</h3>
+              <p style={{ color: '#666' }}>There are currently no tickets available for resale on the marketplace.</p>
+              <p style={{ color: '#666' }}>Check back later or list your own tickets!</p>
             </div>
           ) : (
             <div className="tickets-list">

@@ -187,20 +187,22 @@ export default function ConcertsPage({ navigate }) {
                     <h3>{concert.name}</h3>
                     <p className="concert-artist">{concert.artist}</p>
                     <div className="concert-details">
-                      <p>📅 {new Date(concert.date).toLocaleDateString('en-GB', { 
-                        weekday: 'short', 
-                        day: 'numeric', 
-                        month: 'short', 
-                        year: 'numeric' 
+                      <p>📅 {new Date(concert.date).toLocaleDateString('en-GB', {
+                        weekday: 'short',
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
                       })}</p>
                       <p>🕐 {concert.time}</p>
                       <p>📍 {concert.venue}, {concert.city}</p>
                     </div>
-                    <div className="concert-price">
-                      <span className="price-label">From</span>
-                      <span className="price-value">{concert.priceRange.split(' - ')[0]}</span>
-                    </div>
-                    <button 
+                    {concert.availableTickets > 0 && (
+                      <div className="concert-price">
+                        <span className="price-label">From</span>
+                        <span className="price-value">{concert.priceRange.split(' - ')[0]}</span>
+                      </div>
+                    )}
+                    <button
                       className="btn-view-tickets"
                       onClick={() => navigate('concert-detail', concert)}
                     >

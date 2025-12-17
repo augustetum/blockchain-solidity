@@ -9,14 +9,14 @@ const Web3Context = createContext();
 // After running deployEventsAndMintTickets.js, update the eventTickets array
 const CONTRACTS = {
   ganache: {
-    marketplace: '0x070049C1E18b1FDa660667140f44Ba7e0501fB58',
+    marketplace: '0x0517a53bBCA7402ad8452cC801e30e93D430e223',
     eventTickets: [
-      { name: "Jessica Shy | Vingio Parkas", address: "0x8d19696bE275599a85B203d45a08DFB34e46586E" },
-      { name: "Vaidas Baumila | Žalgirio arena", address: "0xa3e3B88FCAB160E969d4A8eA679b77D33849b471" },
-      { name: "JUODAS VILNIUS 2026", address: "0xC999b51C41c1E64967936BAE4224877A936781B3" },
-      { name: "Kings of Leon | The only show in the region", address: "0xa884805595542c6aDd92E9e9409ABd6ab7A7D736" },
-      { name: "Andrius Mamontovas: TIK HITAI", address: "0x9d0182E8bC385cb5c639f04E59D4B568A166808A" },
-      { name: "punktò ~ KAUNAS", address: "0xD0934898b8f77b57d96d9FfB0ed97B1197807e1c" }
+      { name: "Jessica Shy | Vingio Parkas", address: "0xe730be3C37E470B710b8C484AA32d308335796Bb" },
+      { name: "Vaidas Baumila | Žalgirio arena", address: "0x0A7D07f9ca664E3b2D21BceF53c7ec66E52B5036" },
+      { name: "JUODAS VILNIUS 2026", address: "0xe26fC48Ed0Ff931aEBB036e765041E8942676931" },
+      { name: "Kings of Leon | The only show in the region", address: "0xdC74abcC482e1B26934819fF74432A338bC2B81a" },
+      { name: "Andrius Mamontovas: TIK HITAI", address: "0x6FDc4ED11D61956a0090adf8027dAd1db231f7fF" },
+      { name: "punktò ~ KAUNAS", address: "0x7976665e956443CDCa51a07048845A3d07e6A73C" }
     ]
   },
   sepolia: {

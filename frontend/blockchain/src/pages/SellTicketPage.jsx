@@ -273,11 +273,11 @@ export default function SellTicketPage({ navigate }) {
               borderRadius: '8px',
               marginBottom: '30px'
             }}>
-              <h3>Selected Ticket</h3>
-              <p><strong>Event:</strong> {selectedTicket.eventName}</p>
-              <p><strong>Date:</strong> {selectedTicket.eventDate}</p>
-              <p><strong>Seat:</strong> {selectedTicket.seatNumber}</p>
-              <p><strong>Token ID:</strong> #{selectedTicket.tokenId}</p>
+              <h3 style={{ color: '#333', marginTop: 0 }}>Selected Ticket</h3>
+              <p style={{ color: '#333' }}><strong>Event:</strong> {selectedTicket.eventName}</p>
+              <p style={{ color: '#333' }}><strong>Date:</strong> {selectedTicket.eventDate}</p>
+              <p style={{ color: '#333' }}><strong>Seat:</strong> {selectedTicket.seatNumber}</p>
+              <p style={{ color: '#333' }}><strong>Token ID:</strong> #{selectedTicket.tokenId}</p>
             </div>
 
             <div className="form-section">
