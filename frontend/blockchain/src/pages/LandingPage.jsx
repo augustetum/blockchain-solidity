@@ -1,15 +1,56 @@
 import { useState } from 'react';
 import '../styles/LandingPage.css';
 import WalletConnect from '../components/WalletConnect';
+import SearchResults from '../components/SearchResults';
+import { CONCERTS_DATA, searchConcerts } from '../data/concertsData';
 
 export default function LandingPage({ navigate }) {
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [showResults, setShowResults] = useState(false);
+  const [showNoResults, setShowNoResults] = useState(false);
+
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    
+    if (query.trim()) {
+      const results = searchConcerts(query, CONCERTS_DATA);
+      console.log('Search query:', query);
+      console.log('Search results:', results);
+      setSearchResults(results);
+      setShowNoResults(results.length === 0);
+      setShowResults(true);
+    } else {
+      setShowResults(false);
+      setShowNoResults(false);
+      setSearchResults([]);
+    }
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      navigate('concerts');
+      const results = searchConcerts(searchQuery, CONCERTS_DATA);
+      console.log('Form submit - results:', results);
+      if (results.length > 0) {
+        navigate('concerts');
+      } else {
+        setShowNoResults(true);
+        setShowResults(true);
+      }
     }
+  };
+
+  const handleConcertClick = (concert) => {
+    setShowResults(false);
+    setSearchQuery('');
+    navigate('concert-detail', concert);
+  };
+
+  const handleCloseResults = () => {
+    setShowResults(false);
+    setShowNoResults(false);
   };
 
   return (
@@ -47,7 +88,7 @@ export default function LandingPage({ navigate }) {
                 type="text"
                 placeholder="Search for an event, artist, venue or city..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={handleSearchChange}
                 className="search-input"
               />
               <svg
@@ -90,6 +131,7 @@ export default function LandingPage({ navigate }) {
         <div className="features-container">
           <div className="features-grid">
             <div className="features-list">
+             
             </div>
           </div>
         </div>
