@@ -32,7 +32,7 @@ export default function ConcertsPage({ navigate }) {
           );
 
           if (!eventTicket) {
-            return concert; // Return original if no contract found
+            return null; // Filter out events without contracts on this network
           }
 
           try {
@@ -64,12 +64,14 @@ export default function ConcertsPage({ navigate }) {
             };
           } catch (err) {
             console.error(`Error loading data for ${concert.name}:`, err);
-            return concert;
+            return null; // Filter out events with errors
           }
         })
       );
 
-      setConcertsData(updatedConcerts);
+      // Filter out null values (events without contracts on current network)
+      const availableConcerts = updatedConcerts.filter(concert => concert !== null);
+      setConcertsData(availableConcerts);
     } catch (err) {
       console.error('Error loading concert data:', err);
     } finally {

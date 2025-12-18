@@ -41,10 +41,8 @@
  * https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-dashboard/
  */
 
-// require('dotenv').config();
-// const { MNEMONIC, PROJECT_ID } = process.env;
-
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
+require('dotenv').config();
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
   /**
@@ -100,9 +98,13 @@ module.exports = {
     sepolia: {
       provider: () => new HDWalletProvider(
         process.env.MNEMONIC,
-        `https://sepolia.infura.io/v3/${process.env.INFURA_KEY}`
+        process.env.SEPOLIA_RPC_URL
       ),
       network_id: 11155111,
+      gas: 5500000,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
     }
   },
 

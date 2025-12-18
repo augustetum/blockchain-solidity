@@ -20,14 +20,22 @@ export default function ProfilePage({ navigate }) {
   const loadUserData = async () => {
     setLoading(true);
     try {
+      console.log('=== ProfilePage: Loading user data ===');
+      console.log('Account:', account);
+      console.log('Event Tickets Contracts:', contracts.eventTickets);
+      console.log('Marketplace:', contracts.marketplace);
+      
       // Get owned tickets (purchased)
       const tickets = await getAllOwnedTickets(contracts.eventTickets, account);
+      console.log('Fetched owned tickets:', tickets);
 
       // Get all seller listings (both active and inactive)
       const allListings = await getSellerListings(contracts.marketplace, account);
+      console.log('Fetched all listings:', allListings);
 
       // Filter active listings
       const active = allListings.filter(listing => listing.active);
+      console.log('Active listings:', active);
       setActiveListings(active);
 
       // Create a Set of actively listed ticket keys

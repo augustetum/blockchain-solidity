@@ -116,12 +116,22 @@ export async function getAllOwnedTickets(eventTicketsArray, ownerAddress) {
 // Approve marketplace to transfer ticket
 export async function approveTicketTransfer(contract, marketplaceAddress, tokenId) {
   try {
-    const tx = await contract.approve(marketplaceAddress, tokenId);
+    // First try the standard approve
+    try {
+      const tx = await contract.approve(marketplaceAddress, tokenId);
+      await tx.wait();
+      console.log('Single approval successful');
+      return;
+    } catch (approveError) {
+      console.log('Single approval failed, trying setApprovalForAll...', approveError);
+    }
+    // If single approval fails, try setApprovalForAll
+    const tx = await contract.setApprovalForAll(marketplaceAddress, true);
     const receipt = await tx.wait();
-    console.log('Ticket approved for transfer:', receipt);
+    console.log('Approval for all successful:', receipt);
     return receipt;
   } catch (error) {
-    console.error('Error approving ticket:', error);
+    console.error('Error approving ticket transfer:', error);
     throw error;
   }
 }

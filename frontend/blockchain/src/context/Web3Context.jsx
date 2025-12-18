@@ -20,8 +20,13 @@ const CONTRACTS = {
     ]
   },
   sepolia: {
-    marketplace: null,
-    eventTickets: []
+    marketplace: '0x2aFD75454DBcA7CEbf8a2Cc63D124e3C02167870',
+    eventTickets: [
+      { 
+        name: "Jessica Shy | Vingio Parkas", 
+        address: "0xe5F8062b11BBa89eC6b35e958EF669686269cD3c" 
+      }
+    ]
   }
 };
 export function Web3Provider({ children }) {
