@@ -55,7 +55,158 @@ Diagrama vaizduoja sąveiką tarp vartotojo sąsajos, kontrakto ir Blockchain ti
 
 # Testavimas
 
-## Viešasis tinklas | Sepolia
+<details>
+<summary><strong>Viešasis tinklas | Sepolia</strong></summary>
+
+<br/>
+
+## Sepolia testnet prijungimas
+
+Viešojo tinklo **Sepolia** testavimui ir prijungimui prie platformos vykdėme šiuos žingsnius:
+
+1. Susiradome viešą Sepolia RPC URL  
+   (`https://ethereum-sepolia-rpc.publicnode.com`) ir jį įdėjome į savo `.env` failą  
+   (kurio, deja, negalime parodyti dėl saugumo:)).
+
+2. Atsidarę savo **MetaMask** profilį susiradome dvylikos žodžių *passphrase*, kurį taip pat pridėjome į `.env` failą.
+
+3. Pasinaudojome **Google Cloud Web3 Sepolia faucet**, kad gautume testinių ETH.
+
+4. Sukonfigūravome `truffle-config` bei `Web3` failus, jog jie veiktų su **Sepolia testnet**.
+
+---
+
+### Testavimo eiga
+
+#### 1. Bilieto sukūrimas blokų grandinėje
+
+Testavimo pradžioje sukūrėme testinį renginį ir priskyrėme vieną bilietą savininkui.  
+**Etherscan** aplinkoje matome, jog NFT sėkmingai priskirtas *Account1* MetaMask piniginei.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8b7fb468-c8db-49ff-a0d1-0c9cb5f05ced"
+       width="900"
+       alt="NFT priskyrimas Etherscan aplinkoje"/>
+</p>
+
+---
+
+#### 2. Bilieto atvaizdavimas platformoje
+
+Atsidarę programą matome, jog bilietas sėkmingai atvaizduojamas vartotojo profilyje.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b337bfe3-5695-4546-abe5-fde908388088"
+       width="900"
+       alt="Bilietas platformoje"/>
+</p>
+
+---
+
+#### 3. Bilieto paskelbimas pardavimui
+
+Pagrindiniame puslapyje bilietų dar nematome, nes jis dar nepaskelbtas pardavimui.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1e01acee-f329-4711-a9a0-6eba611857c0"
+       width="900"
+       alt="Pagrindinis puslapis be bilietų"/>
+</p>
+
+Pasirenkame bilietą ir pradedame pardavimo procesą:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c49d67eb-aa2d-4a87-a022-13deea9cc272"
+       width="900"
+       alt="Bilieto pasirinkimas"/>
+</p>
+
+Patvirtiname NFT perrašymą pirkėjui:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9ecbc55a-f683-4433-a71a-b3387d31dd97"
+       width="600"
+       alt="NFT perrašymo patvirtinimas"/>
+</p>
+
+Įvedame kainą ir dar kartą patvirtiname transakciją:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0671955e-e8af-4743-aa26-5be4a886b92f"
+       width="600"
+       alt="Kainos patvirtinimas"/>
+</p>
+
+---
+
+#### 4. Bilietas paskelbtas platformoje
+
+Sistema patvirtina, jog bilietas sėkmingai paskelbtas pardavimui.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ee407c8a-2e02-4316-be1c-b57cc0955a96"
+       width="450"
+       alt="Bilietas paskelbtas"/>
+</p>
+
+Bilietą matome ir bendroje platformos bilietų skiltyje.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6cdc32d2-b233-4d9b-8b9f-3d387c6eb9b6"
+       width="450"
+       alt="Bilietas marketplace"/>
+</p>
+
+---
+
+#### 5. Bilieto pirkimas kitu profiliu
+
+Prisijungę kitu vartotoju (turinčiu **0.05 ETH**), galime nusipirkti bilietą.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/903bd28b-f3ab-40d8-87c9-4eacbecad8db"
+       width="900"
+       alt="Bilieto pirkimas"/>
+</p>
+
+Patvirtiname pirkimą MetaMask aplinkoje:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0b0fd741-bd6f-436c-b6fa-a4a80b20678b"
+       width="600"
+       alt="Pirkimo patvirtinimas"/>
+</p>
+
+Po kelių sekundžių bilietas jau matomas naujo savininko profilyje 🎉
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6a05f01d-8e10-44d2-b4eb-725454647e0c"
+       width="900"
+       alt="Bilietas naujo savininko profilyje"/>
+</p>
+
+---
+
+#### 6. Transakcijų patikrinimas
+
+Lengviausia visą eigą sekti **MetaMask**:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cb010372-0941-4d2f-b7eb-2682c8d37a7e"
+       width="400"
+       alt="MetaMask transakcijos"/>
+</p>
+
+Taip pat visos transakcijos matomos **Etherscan** aplinkoje:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/69aaf7b7-626c-4e59-9a84-0fa97af17bc0"
+       width="900"
+       alt="Etherscan transakcijos"/>
+</p>
+
+</details>
+
 
 ## Privatus tinklas | Genache
 
