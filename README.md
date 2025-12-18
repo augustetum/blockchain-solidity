@@ -36,6 +36,17 @@ NFT pridedamas į Blockchain tinklą – pirkėjas saugiai nusiperka bilietą, o
    * Pirminis pardavimas (mintina bilietus kaip NFT ir parduoda juos pirkėjams)
    * Lėšų surinkimas (gauna procentinę dalį nuo bilietų pirkimo ir pardavimo)
 
+## Sutartys ir funkcijos
+Sistemoje yra dvi sutartys: `EventTicket.sol` bei `TicketMarketplace.sol`
+
+Pagrindinis funkcionalumas įgyvendintas TicketMarketplace.sol (EventTicket.sol yra skirtas renginiams bei jo bilietams kurti)
+
+| Funkcija | Paskirtis | Kas gali iškviesti? |
+| ---- | ---- | ---- |
+| `listTicket(address, uint256, uint256)` | Paskelbti bilietą pardavimui su savo nustatyta kaina | Bilieto savininkas |
+| `buyTicket(uint256)` | Nusipirkti bilietą | Bet kas su pakankama pinigų suma sąskaitoje |
+| `cancelListing(uint256)` | Atšaukti skelbimą | Skelbimo savininkas |
+
 ## Verslo scenarijus
 
 Bilieto Savininkas → Skelbia bilietą Prekyvietėje → Patvirtina prekyvietę → Pirkėjas perka → Pervedimas + Mokėjimas → Naujas savininkas gauna bilietą
