@@ -207,12 +207,131 @@ Taip pat visos transakcijos matomos **Etherscan** aplinkoje:
 
 </details>
 
+<details>
+<summary><strong>Privatus tinklas | Ganache</strong></summary>
 
-## Privatus tinklas | Genache
+<br/>
 
-# Naudotojo sąsaja (angl. _front-end_)
+## Ganache prijungimas
+
+Ganache paleidimas jau aprašytas žemiau esančioje "paleidimo instrukcija ir reikalaimai" skiltyje, todėl nesikartosime.
+
+Ganache testavimas vyko labai panašiai kaip ir Sepolia tinkle, tik čia kilo mažiau konfigūracinių nesklandumų.
+
+Čia taip pat iš anksto sukūrėme keletą pavyzdinių renginių ir bilietų jiems:
+````
+========== Deploying Event Ticket Contracts ==========
+Marketplace: 0x0517a53bBCA7402ad8452cC801e30e93D430e223
+Owner account: 0x961093cb4CD1923a4Aa5bdE0Ac48d2eDD5Ec242B
+
+[1/6] Deploying: Jessica Shy | Vingio Parkas
+  ✓ Contract deployed at: 0xe730be3C37E470B710b8C484AA32d308335796Bb
+  ✓ Approved on marketplace (tx: 0xda373bb480bd5a884457d4d90cfdc7229d0e655a254d20b06a009a9dfcce677f)
+  Minting 5 sample tickets...
+    • Token #0: VIP-A-1 → Account 0
+    • Token #1: VIP-A-2 → Account 0
+    • Token #2: VIP-B-15 → Account 0
+    • Token #3: Section-C-23 → Account 0
+    • Token #4: Section-D-45 → Account 1
+  ✓ Minted 5 tickets
+
+[2/6] Deploying: Vaidas Baumila | Žalgirio arena
+  ✓ Contract deployed at: 0x0A7D07f9ca664E3b2D21BceF53c7ec66E52B5036
+  ✓ Approved on marketplace (tx: 0xffbb30892f771eef46507568a0106c2ca5af85430211d6f64579423d5eea75f7)
+  Minting 4 sample tickets...
+    • Token #0: Floor-A-12 → Account 0
+    • Token #1: Floor-A-13 → Account 0
+    • Token #2: Balcony-B-8 → Account 0
+    • Token #3: Balcony-C-21 → Account 0
+  ✓ Minted 4 tickets
+
+[3/6] Deploying: JUODAS VILNIUS 2026
+  ✓ Contract deployed at: 0xe26fC48Ed0Ff931aEBB036e765041E8942676931
+  ✓ Approved on marketplace (tx: 0xc3b08e1506cb725f2d55d8dce1e6221dd025c0aa916868745f38fa32c124bf5a)
+  Minting 6 sample tickets...
+    • Token #0: GA-001 → Account 0
+    • Token #1: GA-002 → Account 0
+    • Token #2: GA-003 → Account 0
+    • Token #3: VIP-1 → Account 0
+    • Token #4: VIP-2 → Account 0
+    • Token #5: VIP-3 → Account 1
+  ✓ Minted 6 tickets
+
+[4/6] Deploying: Kings of Leon | The only show in the region
+  ✓ Contract deployed at: 0xdC74abcC482e1B26934819fF74432A338bC2B81a
+  ✓ Approved on marketplace (tx: 0x97364a21450d55e0b7dbf453c94497c56f6a6823450b4ad8245df100d65e0c5d)
+  Minting 4 sample tickets...
+    • Token #0: Pit-A-5 → Account 0
+    • Token #1: Pit-A-6 → Account 0
+    • Token #2: Section-101-12 → Account 0
+    • Token #3: Section-102-8 → Account 0
+  ✓ Minted 4 tickets
+
+[5/6] Deploying: Andrius Mamontovas: TIK HITAI
+  ✓ Contract deployed at: 0x6FDc4ED11D61956a0090adf8027dAd1db231f7fF
+  ✓ Approved on marketplace (tx: 0xdf84fab6b54270061a0dd40f56b1cf70403449fd9826d02950c94bb869128ba5)
+  Minting 4 sample tickets...
+    • Token #0: Row-A-10 → Account 0
+    • Token #1: Row-A-11 → Account 0
+    • Token #2: Row-B-15 → Account 0
+    • Token #3: Row-C-20 → Account 0
+  ✓ Minted 4 tickets
+
+[6/6] Deploying: punktò ~ KAUNAS
+  ✓ Contract deployed at: 0x7976665e956443CDCa51a07048845A3d07e6A73C
+  ✓ Approved on marketplace (tx: 0x7773b0a323c6b2f48873a412537e7ac3c63250d737089f338e7cc157196e0c7d)
+  Minting 3 sample tickets...
+    • Token #0: Standing-001 → Account 0
+    • Token #1: Standing-002 → Account 0
+    • Token #2: Standing-003 → Account 0
+  ✓ Minted 3 tickets
+
+========== Deployment Summary ==========
+Total Events: 6
+Marketplace: 0x0517a53bBCA7402ad8452cC801e30e93D430e223
+
+Event Contracts:
+
+1. Jessica Shy | Vingio Parkas
+   Address: 0xe730be3C37E470B710b8C484AA32d308335796Bb
+   Tickets Minted: 5
+
+2. Vaidas Baumila | Žalgirio arena
+   Address: 0x0A7D07f9ca664E3b2D21BceF53c7ec66E52B5036
+   Tickets Minted: 4
+
+3. JUODAS VILNIUS 2026
+   Address: 0xe26fC48Ed0Ff931aEBB036e765041E8942676931
+   Tickets Minted: 6
+
+4. Kings of Leon | The only show in the region
+   Address: 0xdC74abcC482e1B26934819fF74432A338bC2B81a
+   Tickets Minted: 4
+
+5. Andrius Mamontovas: TIK HITAI
+   Address: 0x6FDc4ED11D61956a0090adf8027dAd1db231f7fF
+   Tickets Minted: 4
+
+6. punktò ~ KAUNAS
+   Address: 0x7976665e956443CDCa51a07048845A3d07e6A73C
+   Tickets Minted: 3
+````
+Lyginant su Sepolia, mintinome daugiau bilietų ir renginių, tad ir sąsaja atrodė pilnesnė:
+<img width="1512" height="857" alt="Screenshot 2025-12-18 at 03 52 07" src="https://github.com/user-attachments/assets/d96f9a07-bf60-4cc0-a23d-0f21a020e171" />
+
+Transakcijas sekėme tiesiog komandinėje eilutėje, pvz.:
+````
+  Transaction: 0x1e6813b0f0cf3a5cc9e1f8abf48a4045aadb171dda8eb8b9aa45e5d055618ab0
+  Gas usage: 88631
+  Block number: 60
+  Block time: Thu Dec 17 2025 12:16:59 GMT+0200 (Eastern European Standard Time)
+````
+</details>
+
+## Naudotojo sąsaja (angl. _front-end_)
 <img width="1894" height="766" alt="image" src="https://github.com/user-attachments/assets/0241a352-ae03-4059-bbc0-4c1970c17ffc" />
 <img width="1896" height="789" alt="image" src="https://github.com/user-attachments/assets/13438597-bebd-4347-8fd9-a4133d676c00" />
+
 
 # Paleidimo instrukcija ir reikalavimai
 
@@ -235,7 +354,7 @@ npm install
 ```
 npm install -g ganache
 ```
-5. Paleisti Genache
+5. Paleisti Ganache
 ```
 npm run ganache
 ```
